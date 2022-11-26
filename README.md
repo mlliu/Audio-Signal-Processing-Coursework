@@ -9,13 +9,8 @@ which then go through a linear, time-varying filter h(n). The output signal can 
 x(n) = e(n) ∗ h(n)
 The source signal could be an quasi-periodic pulses (voiced speech) or random noise (unvoiced speech).
 The filter is modeled as all-pole filter, which can be represented as:
-H(z) =
-1
-1 − ΣakZ−k
 If we could extract the coefficients ak, k = 1...p of the all pole filter, then we can reconstruct the signal
 x(n) by using the current input e(n) and past samples x(n−k), k = 1...p using the following equation:
-x(n) = Σp
-k=1akx(n − k) + e(n)
 In this report, we implement a Vocoder based on LPC method above, to achieve signal compression
 and reconstruction. To be more specific, we first cut the signal into small frames and then for each
 frame, we add a window function and then encoded the windowed signal into a few coefficients based
